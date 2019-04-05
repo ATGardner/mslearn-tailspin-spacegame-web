@@ -48,6 +48,16 @@ steps:
     buildConfiguration: 'Release'
     runTests: false
 
+- template: templates/test.yml
+  parameters:
+    buildConfiguration: 'Debug'
+
+- task: PublishTestResults@2
+  condition: succeeded()
+  inputs:
+    testRunner: 'NUnit'
+    testResultsFiles: '**/*.trx'
+
 - task: PublishBuildArtifacts@1
   displayName: 'Publish Artifact: drop'
   condition: succeeded()
