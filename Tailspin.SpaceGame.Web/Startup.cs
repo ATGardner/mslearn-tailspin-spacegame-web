@@ -53,14 +53,12 @@ namespace TailSpin.SpaceGame.Web
 
             app.UseHttpsRedirection();
             app.UseStaticFiles();
-
             app.UseCookiePolicy();
             app.UseRouting();
             app.UseAuthorization();
 
             app.UseEndpoints(endpoints =>
              {
->>>>>>> ca30eb3... update to .NET Core 3.1
                 endpoints.MapControllerRoute(
                     name: "default",
                     pattern: "{controller=Home}/{action=Index}/{id?}");

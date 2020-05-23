@@ -19,7 +19,6 @@ steps:
 
 - task: Npm@1
   displayName: 'Run npm install'
-  wwwrootDir: 'Tailspin.SpaceGame.Web/wwwroot'
   inputs:
     verbose: false
 
