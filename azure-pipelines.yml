@@ -48,10 +48,6 @@ steps:
     buildConfiguration: 'Release'
     runTests: false
 
-- template: templates/test.yml
-  parameters:
-    buildConfiguration: 'Debug'
-
 - task: PublishTestResults@2
   condition: succeeded()
   inputs:
