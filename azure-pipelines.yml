@@ -7,6 +7,7 @@ pool:
   - npm
 
 variables:
+  buildConfiguration: 'Release'
   wwwrootDir: 'Tailspin.SpaceGame.Web/wwwroot'
   dotnetSdkVersion: '3.1.100'
 
@@ -46,6 +47,13 @@ steps:
   parameters:
     buildConfiguration: 'Release'
     runTests: false
+
+- task: PublishTestResults@2
+  condition: succeeded()
+  inputs:
+    testRunner: 'VSTest'
+    searchFolder: $(Agent.TempDirectory)
+    testResultsFiles: '**/*.trx'
 
 - task: PublishBuildArtifacts@1
   displayName: 'Publish Artifact: drop'
